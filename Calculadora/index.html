@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If e Else (condições)</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/estilo.css" rel="stylesheet">
+</head>
+<body class="bg-dark">
+    
+
+
+</body>
+<script type="text/JavaScript">
+
+    //  Criação header
+    var resetarVisor = false;
+    const divContainer = document.createElement("div");
+
+    divContainer.classList.add("container");
+    divContainer.classList.add("col-4");
+    divContainer.classList.add("position-absolute");
+    divContainer.classList.add("top-50");
+    divContainer.classList.add("start-50");
+    divContainer.classList.add("translate-middle");
+    divContainer.classList.add("bg-success");
+    divContainer.id = "container";
+
+    //  Criação title
+    const title = document.createElement("h1");
+    title.innerHTML = "Calculadora";
+    title.classList.add("text-center");
+    title.classList.add("text-dark"); 
+    title.classList.add("display-4"); 
+        //  Colocando title dentro da div container
+        divContainer.append(title);
+
+    //  Criação visor calculadora
+    var divInputResultado = document.createElement("div");
+    divInputResultado.classList.add("row");
+    divInputResultado.classList.add("justify-content-center");
+
+
+    var inputResultado = document.createElement("input");
+    inputResultado.id = "visor";
+    inputResultado.placeholder = "0";
+    inputResultado.classList.add("form-control");
+    inputResultado.disabled = true;
+
+    // Juntando os elementos em div (como na hierarquia do próprio HTML)
+    divInputResultado.append(inputResultado);
+    divContainer.appendChild(divInputResultado);
+
+    //  Criando espaço entre visor e botões
+    var espaço = document.createElement("br");
+    divContainer.append(espaço);
+
+    // Criando os botões da calculadora
+        //  Primeira linha de botões
+        var divPrimeiraLinha = document.createElement("div");
+        divPrimeiraLinha.classList.add("row");
+        divPrimeiraLinha.classList.add("justify-content-center");
+        
+        var buttonC = document.createElement("button");
+        buttonC.classList.add("btn");
+        buttonC.classList.add("btn-danger");
+        buttonC.classList.add("btn-lg");
+        buttonC.classList.add("font-weight-light");
+        buttonC.classList.add("border");
+        buttonC.classList.add("border-dark");
+        buttonC.classList.add("btn-calc");
+        buttonC.classList.add("col-6");
+        buttonC.innerHTML = "C";
+        buttonC.onclick = function() {
+            var visor = document.getElementById("visor");
+            visor.value = "";
+        }
+        divPrimeiraLinha.append(buttonC);
+
+        var buttonDivider = document.createElement("button");
+        buttonDivider.classList.add("btn");
+        buttonDivider.classList.add("btn-dark");
+        buttonDivider.classList.add("btn-lg");
+        buttonDivider.classList.add("font-weight-light");
+        buttonDivider.classList.add("border");
+        buttonDivider.classList.add("border-dark-subtle");
+        buttonDivider.classList.add("btn-calc");
+        buttonDivider.classList.add("col-3");
+        buttonDivider.innerHTML = "/";
+        buttonDivider.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+            if (visor.value == "0" || visor.value == "")
+            {
+                return;
+            }
+            else {
+                visor.value += "/";
+            }
+
+        }
+        divPrimeiraLinha.append(buttonDivider);
+
+        var buttonMultiplier = document.createElement("button");
+        buttonMultiplier.classList.add("btn");
+        buttonMultiplier.classList.add("btn-dark");
+        buttonMultiplier.classList.add("btn-lg");
+        buttonMultiplier.classList.add("font-weight-light");
+        buttonMultiplier.classList.add("border");
+        buttonMultiplier.classList.add("border-dark-subtle");
+        buttonMultiplier.classList.add("btn-calc");
+        buttonMultiplier.classList.add("col-3");
+        buttonMultiplier.innerHTML = "*";
+        buttonMultiplier.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+            if (visor.value == "0" || visor.value == "")
+            {
+                return;
+            }
+            else {
+                visor.value += "*";
+            }
+
+        }
+        divPrimeiraLinha.append(buttonMultiplier);
+
+        divContainer.append(divPrimeiraLinha);
+
+        //  Segunda linha de botões
+        var divSegundaLinha = document.createElement("div");
+        divSegundaLinha.classList.add("row");
+        divSegundaLinha.classList.add("justify-content-center");
+        
+        var buttonSeven = document.createElement("button");
+        buttonSeven.classList.add("btn");
+        buttonSeven.classList.add("btn-light");
+        buttonSeven.classList.add("btn-lg");
+        buttonSeven.classList.add("font-weight-light");
+        buttonSeven.classList.add("border");
+        buttonSeven.classList.add("border-dark");
+        buttonSeven.classList.add("btn-calc");
+        buttonSeven.classList.add("col-3");
+        buttonSeven.innerHTML = "7";
+        buttonSeven.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+
+            visor.value += "7";
+        }
+        divSegundaLinha.append(buttonSeven);
+
+        var buttonEight = document.createElement("button");
+        buttonEight.classList.add("btn");
+        buttonEight.classList.add("btn-light");
+        buttonEight.classList.add("btn-lg");
+        buttonEight.classList.add("font-weight-light");
+        buttonEight.classList.add("border");
+        buttonEight.classList.add("border-dark");
+        buttonEight.classList.add("btn-calc");
+        buttonEight.classList.add("col-3");
+        buttonEight.innerHTML = "8";
+        buttonEight.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+
+            visor.value += "8";
+        }
+        divSegundaLinha.append(buttonEight);
+
+        var buttonNine = document.createElement("button");
+        buttonNine.classList.add("btn");
+        buttonNine.classList.add("btn-light");
+        buttonNine.classList.add("btn-lg");
+        buttonNine.classList.add("font-weight-light");
+        buttonNine.classList.add("border");
+        buttonNine.classList.add("border-dark");
+        buttonNine.classList.add("btn-calc");
+        buttonNine.classList.add("col-3");
+        buttonNine.innerHTML = "9";
+        buttonNine.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+
+            visor.value += "9";
+        }
+        divSegundaLinha.append(buttonNine);
+
+        var buttonMinus = document.createElement("button");
+        buttonMinus.classList.add("btn");
+        buttonMinus.classList.add("btn-dark");
+        buttonMinus.classList.add("btn-lg");
+        buttonMinus.classList.add("font-weight-light");
+        buttonMinus.classList.add("border");
+        buttonMinus.classList.add("border-dark-subtle");
+        buttonMinus.classList.add("btn-calc");
+        buttonMinus.classList.add("col-3");
+        buttonMinus.innerHTML = "-";
+        buttonMinus.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+            if (visor.value == "0" || visor.value == "")
+            {
+                return;
+            }
+            else {
+                visor.value += "-";
+            }
+
+        }
+        divSegundaLinha.append(buttonMinus);
+
+        divContainer.append(divSegundaLinha);
+
+        //  Terceira linha de botões
+        var divTerceiraLinha = document.createElement("div");
+        divTerceiraLinha.classList.add("row");
+        divTerceiraLinha.classList.add("justify-content-center");
+        
+        var buttonFour = document.createElement("button");
+        buttonFour.classList.add("btn");
+        buttonFour.classList.add("btn-light");
+        buttonFour.classList.add("btn-lg");
+        buttonFour.classList.add("font-weight-light");
+        buttonFour.classList.add("border");
+        buttonFour.classList.add("border-dark");
+        buttonFour.classList.add("btn-calc");
+        buttonFour.classList.add("col-3");
+        buttonFour.innerHTML = "4";
+        buttonFour.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+            visor.value += "4";
+        }
+        divTerceiraLinha.append(buttonFour);
+
+        var buttonFive = document.createElement("button");
+        buttonFive.classList.add("btn");
+        buttonFive.classList.add("btn-light");
+        buttonFive.classList.add("btn-lg");
+        buttonFive.classList.add("font-weight-light");
+        buttonFive.classList.add("border");
+        buttonFive.classList.add("border-dark");
+        buttonFive.classList.add("btn-calc");
+        buttonFive.classList.add("col-3");
+        buttonFive.innerHTML = "5";
+        buttonFive.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+
+            visor.value += "5";
+        }
+        divTerceiraLinha.append(buttonFive);
+
+        var buttonSix = document.createElement("button");
+        buttonSix.classList.add("btn");
+        buttonSix.classList.add("btn-light");
+        buttonSix.classList.add("btn-lg");
+        buttonSix.classList.add("font-weight-light");
+        buttonSix.classList.add("border");
+        buttonSix.classList.add("border-dark");
+        buttonSix.classList.add("btn-calc");
+        buttonSix.classList.add("col-3");
+        buttonSix.innerHTML = "6";
+        buttonSix.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+
+            visor.value += "6";
+        }
+        divTerceiraLinha.append(buttonSix);
+
+        var buttonPlus = document.createElement("button");
+        buttonPlus.classList.add("btn");
+        buttonPlus.classList.add("btn-dark");
+        buttonPlus.classList.add("btn-lg");
+        buttonPlus.classList.add("font-weight-light");
+        buttonPlus.classList.add("border");
+        buttonPlus.classList.add("border-dark-subtle");
+        buttonPlus.classList.add("btn-calc");
+        buttonPlus.classList.add("col-3");
+        buttonPlus.innerHTML = "+";
+        buttonPlus.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+            if (visor.value == "0" || visor.value == "")
+            {
+                return;
+            }
+            else {
+                visor.value += "+";
+            }
+
+        }
+        divTerceiraLinha.append(buttonPlus);
+
+        divContainer.append(divTerceiraLinha);
+
+        //  Quarta linha de botões
+        var divQuartaLinha = document.createElement("div");
+        divQuartaLinha.classList.add("row");
+        divQuartaLinha.classList.add("justify-content-center");
+        
+        var buttonOne = document.createElement("button");
+        buttonOne.classList.add("btn");
+        buttonOne.classList.add("btn-light");
+        buttonOne.classList.add("btn-lg");
+        buttonOne.classList.add("font-weight-light");
+        buttonOne.classList.add("border");
+        buttonOne.classList.add("border-dark");
+        buttonOne.classList.add("btn-calc");
+        buttonOne.classList.add("col-3");
+        buttonOne.innerHTML = "1";
+        buttonOne.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+
+            visor.value += "1";
+        }
+        divQuartaLinha.append(buttonOne);
+
+        var buttonTwo = document.createElement("button");
+        buttonTwo.classList.add("btn");
+        buttonTwo.classList.add("btn-light");
+        buttonTwo.classList.add("btn-lg");
+        buttonTwo.classList.add("font-weight-light");
+        buttonTwo.classList.add("border");
+        buttonTwo.classList.add("border-dark");
+        buttonTwo.classList.add("btn-calc");
+        buttonTwo.classList.add("col-3");
+        buttonTwo.innerHTML = "2";
+        buttonTwo.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+
+            visor.value += "2";
+        }
+        divQuartaLinha.append(buttonTwo);
+
+        var buttonThree = document.createElement("button");
+        buttonThree.classList.add("btn");
+        buttonThree.classList.add("btn-light");
+        buttonThree.classList.add("btn-lg");
+        buttonThree.classList.add("font-weight-light");
+        buttonThree.classList.add("border");
+        buttonThree.classList.add("border-dark");
+        buttonThree.classList.add("btn-calc");
+        buttonThree.classList.add("col-3");
+        buttonThree.innerHTML = "3";
+        buttonThree.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+
+            visor.value += "3";
+        }
+        divQuartaLinha.append(buttonThree);
+
+        var buttonPoint = document.createElement("button");
+        buttonPoint.classList.add("btn");
+        buttonPoint.classList.add("btn-dark");
+        buttonPoint.classList.add("btn-lg");
+        buttonPoint.classList.add("font-weight-light");
+        buttonPoint.classList.add("border");
+        buttonPoint.classList.add("border-dark-subtle");
+        buttonPoint.classList.add("btn-calc");
+        buttonPoint.classList.add("col-3");
+        buttonPoint.innerHTML = ".";
+        buttonPoint.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+                visor.value += ".";
+        }
+        divQuartaLinha.append(buttonPoint);
+
+        divContainer.append(divQuartaLinha);
+
+        //  Quinta linha de botões
+        var divQuintaLinha = document.createElement("div");
+        divQuintaLinha.classList.add("row");
+        divQuintaLinha.classList.add("justify-content-center");
+        
+        var buttonZerohundred = document.createElement("button");
+        buttonZerohundred.classList.add("btn");
+        buttonZerohundred.classList.add("btn-secondary");
+        buttonZerohundred.classList.add("btn-lg");
+        buttonZerohundred.classList.add("font-weight-light");
+        buttonZerohundred.classList.add("border");
+        buttonZerohundred.classList.add("border-dark");
+        buttonZerohundred.classList.add("btn-calc");
+        buttonZerohundred.classList.add("col-3");
+        buttonZerohundred.innerHTML = "00";
+        buttonZerohundred.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+            if (visor.value == "0" || visor.value == "")
+            {
+                return;
+            }
+            else {
+                visor.value += "00";
+            }
+
+        }
+        divQuintaLinha.append(buttonZerohundred);
+
+        var buttonZero = document.createElement("button");
+        buttonZero.classList.add("btn");
+        buttonZero.classList.add("btn-light");
+        buttonZero.classList.add("btn-lg");
+        buttonZero.classList.add("font-weight-light");
+        buttonZero.classList.add("border");
+        buttonZero.classList.add("border-dark");
+        buttonZero.classList.add("btn-calc");
+        buttonZero.classList.add("col-3");
+        buttonZero.innerHTML = "0";
+        buttonZero.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            if (resetarVisor)
+            {
+                resetarVisor = false;
+                visor.value = "";
+            }
+            if (visor.value == "0" || visor.value == "")
+            {
+                return;
+            }
+            else {
+                visor.value += "0";
+            }
+        }
+        divQuintaLinha.append(buttonZero);
+        
+        var buttonEqual = document.createElement("button");
+        buttonEqual.classList.add("btn");
+        buttonEqual.classList.add("btn-success");
+        buttonEqual.classList.add("btn-lg");
+        buttonEqual.classList.add("font-weight-light");
+        buttonEqual.classList.add("border");
+        buttonEqual.classList.add("border-dark-subtle");
+        buttonEqual.classList.add("btn-calc");
+        buttonEqual.classList.add("col-6");
+        buttonEqual.innerHTML = "=";
+        buttonEqual.onclick = function() {
+            var visor = document.getElementById("visor");
+
+            try {
+                var result = eval(visor.value);
+                if (isNaN(parseFloat(result)) || !isFinite(result))
+                {
+                    visor.value = "Erro na expressão";
+                }
+                else {
+                    visor.value = result;
+                }
+            } catch (error) {
+                visor.value = "Erro na expressão";
+            }
+            resetarVisor = true;
+        }
+        divQuintaLinha.append(buttonEqual);
+
+        divContainer.append(divQuintaLinha);
+
+        //  colocando o elemento principal (container) dentro do <body> do HTML
+    document.body.append(divContainer);
+
+</script>
+</html>
