@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Juros Compostos</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body class="bg-dark text-white">
+  <h1 class="display-6">Calculadora de Juros Compostos</h1>
+  <form class="form-control bg-danger" style="box-shadow: rgba(0, 97, 24, 0.4) 5px 5px, rgba(0, 97, 24, 0.3) 10px 10px, rgba(0, 97, 24, 0.2) 15px 15px, rgba(0, 97, 24, 0.1) 20px 20px, rgba(0, 97, 24, 0.05) 25px 25px;">
+    <label for="principal">Valor Principal:</label>
+    <input type="number" id="principal" required class="form-control">
+
+    <label for="juros">Taxa de Juros Anual:</label>
+    <input type="number" id="juros" required class="form-control">
+
+    <label for="periodos">Número de Períodos:</label>
+    <input type="number" id="periodos" required class="form-control">
+
+    <label for="frequencia">Frequência de Juros:</label>
+    <select id="frequencia" required class="form-control">
+      <option value="anual">Anual</option>
+      <option value="semestral">Semestral</option>
+      <option value="trimestral">Trimestral</option>
+      <option value="mensal">Mensal</option>
+      <option value="diaria">Diária</option>
+    </select>
+    <hr>
+    <button type="button" onclick="calcular()" class="form-control">Calcular</button>
+
+    <div id="resultado"></div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

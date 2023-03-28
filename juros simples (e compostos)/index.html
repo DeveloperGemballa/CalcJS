@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Juros Simples</title>
+  <link rel="stylesheet" type="text/css" href="estilos.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+</head>
+<body class="bg-dark text-white">
+  <h1 class="display-6">Calculadora de Juros Simples</h1>
+  <form class="form-control bg-success" style="box-shadow: rgba(0, 97, 24, 0.4) 5px 5px, rgba(0, 97, 24, 0.3) 10px 10px, rgba(0, 97, 24, 0.2) 15px 15px, rgba(0, 97, 24, 0.1) 20px 20px, rgba(0, 97, 24, 0.05) 25px 25px;">
+    <label for="principal">Valor Principal:</label>
+    <input type="number" id="principal" required class="form-control">
+
+    <label for="juros">Taxa de Juros:</label>
+    <input type="number" id="juros" required class="form-control">
+
+    <label for="periodos">Número de Períodos:</label>
+    <input type="number" id="periodos" required class="form-control">
+    <hr>
+    <button type="button" onclick="calcular()" class="form-control">Calcular</button>
+
+    <div id="resultado"></div>
+  </form>
+
+  <script src="funcoes.js"></script>
+</body>
+</html>
