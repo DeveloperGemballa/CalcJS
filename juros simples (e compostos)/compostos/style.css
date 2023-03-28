@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  
+  select {
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  #resultado {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
